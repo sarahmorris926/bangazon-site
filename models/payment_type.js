@@ -5,9 +5,15 @@ module.exports = (sequelize, DataTypes) => {
     payment_type_id: DataTypes.INTEGER,
     customer_id: DataTypes.INTEGER,
     account_number: DataTypes.INTEGER
-  }, {});
+  }, {tableName: "payment_type", timestamps: false});
   Payment_Type.associate = function(models) {
-    // associations can be defined here
+    Payment_Type.belongsTo(model.User, {
+      foreignKey: "user_id", 
+      onDelete: "CASCADE"
+    });
+    Payment_Type.hasMany(model.Order, {
+      foreignKey: "payment_type_id"
+    });
   };
   return Payment_Type;
 };

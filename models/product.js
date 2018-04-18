@@ -8,9 +8,18 @@ module.exports = (sequelize, DataTypes) => {
     customer_id: DataTypes.INTEGER,
     listing_date: DataTypes.STRING,
     quantity: DataTypes.INTEGER
-  }, {});
+  }, {tableName: "product", timestamps: true});
   Product.associate = function(models) {
-    // associations can be defined here
+    Product.belongsTo(model.Product_Type, {
+      foreignKey: "product_type_id"
+    });
+    Product.belongsTo(model.User, {
+      foreignKey: "user_id"
+    });
+    Product.belongsToMany(model.Orders, {
+      through: "order_product",
+      as: "ProductOnOrder"
+    })
   };
   return Product;
 };
