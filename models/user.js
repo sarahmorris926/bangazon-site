@@ -6,9 +6,17 @@ module.exports = function(sequelize, DataTypes) {
     username: DataTypes.TEXT,
     email: DataTypes.STRING,
     password: DataTypes.STRING
-  }, {timestamps: false});
-
+  }, {tableName: "user", timestamps: false});
   User.associate= (models) => {
+    User.hasMany(model.Product, {
+      foreignKey: "user_id"
+    });
+    User.hasMany(model.Order, {
+      foreignKey: "user_id"
+    });
+    User.hasMany(model.Payment_Type, {
+      foreignKey: "user_id"
+    });
   };
 
   return User;
