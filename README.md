@@ -19,3 +19,22 @@ ex)
 5.navigate to your previous tab and run 
 
 `node build_db`
+
+
+`
+# Product Details
+
+To test, run 
+
+```
+ npm start
+```
+to begin running your sever.  Visit localhost8080 to pull up the log in screen. If you have not registered your account, select the register account button. Else, select the log in button and proceed to log in.
+
+Once you have logged in, in your url enter the following address, replacing id with the id of the product you wish to view (1 - 11 please):
+
+```
+http://localhost:8080/product/<id>
+```
+
+You will then see the product details for the product you have selected!
