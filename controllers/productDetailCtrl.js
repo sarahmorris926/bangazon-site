@@ -11,9 +11,11 @@ module.exports.getProductDetails = (req, res, next) => {
     Product.findOne({
         raw: true,
         where: { id: req.params.id },
-        include: [{ model:Product_Type }]
+        include: [{ model: Product_Type }]
     })
         .then(product => {
-            res.status(200).json(product);
-        })
+        res.render("productDetail", {
+            product
+        });
+    });
 };
