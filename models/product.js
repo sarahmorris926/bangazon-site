@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     product_type: DataTypes.STRING,
     price: DataTypes.INTEGER,
     description: DataTypes.STRING,
-    customer_id: DataTypes.INTEGER,
+    user_id: DataTypes.INTEGER,
     listing_date: DataTypes.STRING,
     quantity: DataTypes.INTEGER
   }, {tableName: "product", timestamps: true});
