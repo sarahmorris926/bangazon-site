@@ -1,0 +1,12 @@
+{
+  "payment_types": [
+    {
+      "payment_type_name": "Visa",
+      "account_number": 123456781
+    },
+    {
+      "payment_type_name": "MasterCard",
+      "account_number": 456839051
+    }
+  ]
+} 

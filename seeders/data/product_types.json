@@ -1,0 +1,37 @@
+{
+  "product_types": [
+      {
+          "label": "tools"
+      },
+      {
+          "label": "electronics"
+      },
+      {
+          "label": "automotive"
+      },
+      {
+          "label": "jewelery"
+      },
+      {
+          "label": "games"
+      },
+      {
+          "label": "garden"
+      },
+      {
+          "label": "books"
+      },
+      {
+          "label": "industrial"
+      },
+      {
+          "label": "sports"
+      },
+      {
+          "label": "beauty"
+      },
+      {
+          "label": "health"
+      }
+  ]
+}
