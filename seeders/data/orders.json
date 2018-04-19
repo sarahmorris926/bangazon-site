@@ -1,0 +1,20 @@
+{
+  "orders": [
+      {
+          "payment_type": 1,
+          "order_creation_date": "2015-02-19"
+      },
+      {
+          "payment_type": 2,
+          "order_creation_date": "2017-12-09"
+      },
+      {
+          "payment_type": 3,
+          "order_creation_date": "2017-11-30"
+      },
+      {
+          "payment_type": 4,
+          "order_creation_date": "2017-06-5"
+      }
+  ]
+}

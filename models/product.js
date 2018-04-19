@@ -5,18 +5,18 @@ module.exports = (sequelize, DataTypes) => {
     product_type: DataTypes.STRING,
     price: DataTypes.INTEGER,
     description: DataTypes.STRING,
-    customer_id: DataTypes.INTEGER,
+    user_id: DataTypes.INTEGER,
     listing_date: DataTypes.STRING,
     quantity: DataTypes.INTEGER
   }, {tableName: "product", timestamps: true});
   Product.associate = function(models) {
-    Product.belongsTo(model.Product_Type, {
+    Product.belongsTo(models.Product_Type, {
       foreignKey: "product_type_id"
     });
-    Product.belongsTo(model.User, {
+    Product.belongsTo(models.User, {
       foreignKey: "user_id"
     });
-    Product.belongsToMany(model.Orders, {
+    Product.belongsToMany(models.Orders, {
       through: "order_product",
       as: "ProductOnOrder"
     })
