@@ -13,7 +13,7 @@ module.exports.getLatestProducts = (req, res, next) => {
     })
     .then(products => {
         console.log(products);
-        res.render("allProducts", {
+        res.render("home", {
             products
         });
         });
