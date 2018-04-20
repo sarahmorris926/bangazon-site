@@ -22,12 +22,13 @@ if(mm<10) {
 today = mm + '/' + dd + '/' + yyyy;
 
 module.exports.sellProduct = (req, res, next) => {
-  const { Product } = req.app.get('models');
-  req.body.user_id = 1;
+  const { Product, User } = req.app.get('models');
+  console.log("SESSION PASSPORT", req.session.passport.user.id)
+  req.body.user_id = req.session.passport.user.id;
   req.body.listing_date = today;
   Product.create(req.body).then(data => {
     console.log("new data", data);
-    res.json(data)
+    res.json(data);
   });
 };
 
