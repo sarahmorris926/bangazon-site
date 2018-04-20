@@ -10,9 +10,9 @@ steps :
 
 1. Open another tab in your terminal and run `psql` 
 
-2. `CREATE DATABASE _your_database_goes_here_`
+2. `CREATE DATABASE sickquelize`
 
-3. `\c _your_database_name`
+3. `\c sickquelize`
 
 in the command line you will see "You are now connected to the database"
 
