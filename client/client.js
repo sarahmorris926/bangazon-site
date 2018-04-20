@@ -8,3 +8,10 @@ document.getElementById("showLogin").addEventListener('click', () => {
 document.getElementById("showRegister").addEventListener('click', () => {
   location.href = `${location.origin}/register`;
 });
+
+document.getElementById("profile").addEventListener('click', () => {
+  console.log("I'm in the user's profile!", location.origin);
+  location.href = `${location.origin}/profile`;
+});
+
+console.log(event)
