@@ -11,10 +11,24 @@ module.exports.getLatestProducts = (req, res, next) => {
     Product.findAll({
         raw: true
     })
-    .then(products => {
-        console.log(products);
-        res.render("home", {
-            products
+        .then(products => {
+            let productsByDate = orderByDate(products);
+            console.log("productsByDate", productsByDate);
+            res.render("home", {
+                products
+            });
         });
-        });
-    }
+}
+
+
+function compareNumbers(a, b) {
+    if (a.listing_date > b.listing_date)
+        return -1;
+    if (a.listing_date < b.listing_date)
+        return 1;
+    return 0;
+}
+const orderByDate = (array) => {
+    return array.sort(compareNumbers);
+}
+
