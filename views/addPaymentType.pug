@@ -14,3 +14,8 @@ html
         label(for="accountNumber") Account Number
         input.text(name="account_number" type="number")
         input.btn(type="submit" value="Submit")
+    
+    h3 Existing Payment Types
+    each payment_type in PaymentArr
+      h6 #{payment_type.payment_type_name}
+    //- each payment in PaymentArr
