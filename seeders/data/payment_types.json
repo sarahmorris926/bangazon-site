@@ -2,10 +2,12 @@
   "payment_types": [
     {
       "payment_type_name": "Visa",
+      "user_id": 1,
       "account_number": 123456781
     },
     {
       "payment_type_name": "MasterCard",
+      "user_id": 2,          
       "account_number": 456839051
     }
   ]
