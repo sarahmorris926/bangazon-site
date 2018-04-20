@@ -1,0 +1,14 @@
+html
+  head
+    title Product Details
+    include stylesheets.pug
+  body
+    include ./partials/nav.pug
+    
+  block content
+    h1 Product Details
+      h2 #{product.product_name}
+      h4 #{product.description}
+      h5 #{product.quantity}
+      h5 #{product.price}
+

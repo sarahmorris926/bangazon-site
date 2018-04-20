@@ -1,0 +1,20 @@
+html
+  head
+    title Sell a Product
+    include stylesheets.pug
+  body
+    include ./partials/nav.pug
+
+  block content
+    h1 Hello world
+
+    form(action="/sell" method="POST")
+      label(for="product_name") Product Name: 
+      input.text(id="product_name" name="product_name" type="text")
+      label(for="description") Description: 
+      input.textarea(id="description" name="description" type="textarea" rows=)
+      label(for="price") Price: 
+      input.text(id="price" name="price" type="text")
+      label(for="quantity") Quantity: 
+      input.text(id="quantity" name="quantity" type="text")
+      input.btn(type="submit" value="Submit")
