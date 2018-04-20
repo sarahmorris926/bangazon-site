@@ -14,4 +14,13 @@ document.getElementById("profile").addEventListener('click', () => {
   location.href = `${location.origin}/profile`;
 });
 
-console.log(event)
+document.getElementById("addPaymentType").addEventListener('click', () => {
+  console.log("Add a payment types", location.origin);
+  location.href = `${location.origin}/payment-types`;
+});
+
+document.getElementById("paymentTypeSubmit").addEventListener('click', () => {
+  console.log("Payment Type Added!", location.origin);
+  location.href = `${location.origin}/payment-types`;
+});
+

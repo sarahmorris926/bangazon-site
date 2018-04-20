@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Add Payment Type
+    include stylesheets.pug
+  body
+    include ./partials/nav.pug
+    
+  block content
+    h1 Add New Payment Type
+    form#signin(name="addPaymentType" method="post" action="/payment-types")
+        label(for="PaymentTypeName") Payment Type Name
+        input.text(id="paymentTypeName" name="payment_type_name" type="text")
+        label(for="accountNumber") Account Number
+        input.text(name="account_number" type="number")
+        input.btn(type="submit" value="Submit")

@@ -1,7 +1,8 @@
 const { Router } = require('express');
 const router = Router();
-const { addPaymentType } = require('../controllers/paymentTypeCtrl');
+const { addPaymentType, displayPaymentTypeForm } = require('../controllers/paymentTypeCtrl');
 
-router.post('/payment-types', addPaymentType)
+router.get('/payment-types', displayPaymentTypeForm);
+router.post('/payment-types', addPaymentType);
 
 module.exports = router;
