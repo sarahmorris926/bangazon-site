@@ -13,6 +13,8 @@ module.exports.getLatestProducts = (req, res, next) => {
     })
     .then(products => {
         console.log(products);
-        res.status(200).json(products);
+        res.render("allProducts", {
+            products
+        });
         });
     }
