@@ -8,3 +8,8 @@ document.getElementById("showLogin").addEventListener('click', () => {
 document.getElementById("showRegister").addEventListener('click', () => {
   location.href = `${location.origin}/register`;
 });
+
+
+document.getElementById("sellProductSubmit").addEventListener('click', () => {
+  location.href = `${location.origin}/product/${id}`
+})

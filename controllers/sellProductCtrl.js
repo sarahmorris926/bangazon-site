@@ -28,7 +28,7 @@ module.exports.sellProduct = (req, res, next) => {
   req.body.listing_date = today;
   Product.create(req.body).then(data => {
     console.log("new data", data);
-    res.json(data);
+    res.render("productDetail", {data})
   });
 };
 
