@@ -29,6 +29,12 @@ app.use(session({
   saveUninitialized: true
 })); // session secret
 
+app.use(
+  "/bootstrap",
+  express.static(__dirname + "/node_modules/bootstrap/dist/")
+);
+
+
 //execute passport strategies file
 require('./config/passport-strat.js');
 app.use(passport.initialize());

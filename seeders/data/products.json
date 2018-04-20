@@ -2,79 +2,90 @@
   "products": [
     {
       "product_name": "Fantastic Cotton Fish",
-      "product_type": 1,
+      "product_type_id": 1,
       "price": 800.00,
       "description": "I'll generate the optical IB bus, that should firewall the XML panel!",
+      "user_id": 1,          
       "listing_date": "2018-01-04"
     },
     {
       "product_name": "Incredible Soft Chips",
-      "product_type": 2,
+      "product_type_id": 2,
       "price": 907.00,
       "description": "I'll parse the virtual COM application, that should card the SSL protocol!",
+      "user_id": 1,
       "listing_date": "2017-11-12"
     },
     {
       "product_name": "Unbranded Rubber Car",
-      "product_type": 3,
+      "product_type_id": 3,
       "price": 24.00,
       "description": "calculating the pixel won't do anything, we need to generate the 1080p RSS program!",
+      "user_id": 1,
       "listing_date": "2017-12-05"
     },
     {
       "product_name": "Practical Soft Towels",
-      "product_type": 4,
+      "product_type_id": 4,
       "price": 940.00,
       "description": "You can't synthesize the circuit without overriding the digital GB array!",
+      "user_id": 1,
       "listing_date": "2017-09-25"
     },
     {
       "product_name": "Practical Soft Bike",
-      "product_type": 5,
+      "product_type_id": 5,
       "price": 21.00,
       "description": "If we override the program, we can get to the JBOD array through the online SCSI system!",
+      "user_id": 1,
       "listing_date": "2018-01-27"
     },
     {
       "product_name": "Intelligent Wooden Shirt",
-      "product_type": 6,
+      "product_type_id": 6,
       "price": 634.00,
       "description": "We need to index the neural SSL microchip!",
+      "user_id": 1,
       "listing_date": "2017-11-25"
     },
     {
       "product_name": "Sleek Metal Hat",
-      "product_type": 7,
+      "product_type_id": 7,
       "price": 733.00,
       "description": "Try to copy the SAS hard drive, maybe it will reboot the solid state sensor!",
+      "user_id": 2,
       "listing_date": "2017-11-03"
     },
     {
       "product_name": "Licensed Plastic Pants",
-      "product_type": 8,
+      "product_type_id": 8,
       "price": 993.00,
       "description": "We need to synthesize the multi-byte AGP feed!",
+      "user_id": 2,
       "listing_date": "2017-12-12"
     },
     {
       "product_name": "Ergonomic Soft Keyboard",
-      "product_type": 9,
+      "product_type_id": 9,
       "price": 182.00,
       "description": "Use the cross-platform RSS matrix, then you can back up the solid state application!",
+      "user_id": 2,
       "listing_date": "2017-05-12"
     },
     {
       "product_name": "Handmade Plastic Fish",
-      "product_type": 10,
+      "product_type_id": 10,
       "price": 412.00,
       "description": "overriding the system won't do anything, we need to transmit the online FTP bandwidth!",
+      "user_id": 2,
       "listing_date": "2017-11-28"
     },
     {
       "product_name": "Awesome Steel Sausages",
-      "product_type": 11,
+      "product_type_id": 11,
       "price": 842.00,
       "description": "Try to transmit the SMS protocol, maybe it will program the digital system!",
+      "user_id": 2,
       "listing_date": "2017-06-15"
     }
   ]

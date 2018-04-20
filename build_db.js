@@ -10,7 +10,7 @@ let { users } = require("./seeders/data/users")
  
 models.sequelize.sync({force: true})
 .then(()=>{
-  return models.Orders.bulkCreate(orders)
+  return models.User.bulkCreate(users)
 })
 .then(()=>{
   return models.Payment_Type.bulkCreate(payment_types)
@@ -21,8 +21,8 @@ models.sequelize.sync({force: true})
 .then(()=>{
   return models.Product.bulkCreate(products)
 })
-.then(() => {
-  return models.User.bulkCreate(users)
+.then(()=>{
+  return models.Orders.bulkCreate(orders)
 })
 .then(()=>{
   process.exit();

@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     user_id: DataTypes.INTEGER,
     payment_type_id: DataTypes.INTEGER,
     order_creation_date: DataTypes.STRING
-  }, {tableName: "orders", timestamps: false});
+  }, {tableName: "orders", timestamps: false, allowNull: true});
   Orders.associate = function(models) {
     Orders.belongsTo(models.Payment_Type, {
       foreignKey: "payment_type_id"
