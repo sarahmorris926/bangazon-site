@@ -8,3 +8,4 @@ document.getElementById("showLogin").addEventListener('click', () => {
 document.getElementById("showRegister").addEventListener('click', () => {
   location.href = `${location.origin}/register`;
 });
+
