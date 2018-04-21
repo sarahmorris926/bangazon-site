@@ -32,6 +32,7 @@ module.exports.postOrder = (req, res, next) => {
 
     })
     .then(result => {
-      console.log(result);
+      console.log(result.id, "result");
+      
     })
   };
