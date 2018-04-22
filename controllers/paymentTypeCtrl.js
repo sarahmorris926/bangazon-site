@@ -23,7 +23,6 @@ module.exports.displayPaymentTypeForm = (req, res, next) => {
 }
 
 module.exports.getAllPaymentTypes = (req, res, next) => {
-    console.log("fhdsfkhsdfudshfiudsuhfidsuhfidshfihdsifhdsifhusdfiuhsfsdiufh")
     const { Payment_Type } = req.app.get("models");
     Payment_Type.findAll({
         raw: true
