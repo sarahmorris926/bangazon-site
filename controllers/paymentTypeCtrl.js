@@ -25,27 +25,13 @@ module.exports.displayPaymentTypeForm = (req, res, next) => {
 module.exports.getAllPaymentTypes = (req, res, next) => {
     const { Payment_Type } = req.app.get("models");
     Payment_Type.findAll({
-        raw: true
+        raw: true,
+        where: {user_id: req.session.passport.user.id}
     })
     .then( PaymentArr => {
-        console.log("paymentArr", PaymentArr);
         res.render("addPaymentType", {
             PaymentArr
         });
     });
 }
-
-// return new Promise( (resolve, reject) => {
-//     Show.findAll({include: [{model: Director, attributes: ["name"]}]})
-//     .then( shows => {
-//         res.status(200).json(shows);
-//         resolve(shows)
-//     })
-//     .catch( err => {
-//         console.log("oops", err);
-//         res.status(500).json({error})
-//         reject(error)
-//     });
-// }) 
-// }
 
