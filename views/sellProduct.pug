@@ -14,7 +14,7 @@ html
       label(for="description") Description: 
       input.textarea(id="description" name="description" type="text" required="required")
       label(for="price") Price: 
-      input.text(id="price" name="price" type="number" required="required")
+      input.text(type="number" id="price" name="price" placeholder="1.0" step="0.01" min="0" required="required")
       label(for="quantity") Quantity: 
       input.text(id="quantity" name="quantity" type="number" required="required")
       input.btn(type="submit" value="Submit" id="sellProductSubmit")
