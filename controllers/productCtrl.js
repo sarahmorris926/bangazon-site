@@ -23,16 +23,17 @@ module.exports.postOrder = (req, res, next) => {
 
   //find order or make a new one 
   // add the product to the join table w/ prod id from route and w/ order id from the find 
-  Orders.findOne({
+  Orders.findOrCreate({
       raw: true,
       where: {
         payment_type_id: null,
         user_id: req.session.passport.user.id
-      }
-
+      }, defaults: {order_creation_date: '2018-04-23'}
     })
-    .then(result => {
-      console.log(result.id, "result");
-      
+    .spread((Orders, created) => {
+      console.log(Orders.get({
+        plain: true
+      }))
+      console.log(created)
     })
   };

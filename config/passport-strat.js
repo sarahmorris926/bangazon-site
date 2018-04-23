@@ -23,7 +23,7 @@ const RegistrationStrategy = new Strategy(
   },
   // arg2 callback, handle storing a user's details.
   (req, email, password, done) => {
-    console.log("local strat callback: password", email);
+    // console.log("local strat callback: password", email);
     User = req.app.get("models").User; // this is made possible by line 14 in app.js: app.set('models', require('./models'));
 
     // add our hashed password generating function inside the callback function
@@ -59,7 +59,7 @@ const RegistrationStrategy = new Strategy(
             return done(null, false);
           }
           if (newUser) {
-            console.log("newUser", newUser);
+            // console.log("newUser", newUser);
             return done(null, newUser);
           }
         });
@@ -86,7 +86,7 @@ const LoginStrategy = new Strategy(
 
     User.findOne({ where: { email } })
       .then(user => {
-        console.log("username stuff", user);
+        // console.log("username stuff", user);
 
         if (!user) {
           return done(null, false, {
