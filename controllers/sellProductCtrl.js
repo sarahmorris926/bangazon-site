@@ -3,7 +3,6 @@
 const express = require('express');
 const app = express();
 const passport = require('passport');
-const {getProductDetails} = require('./productDetailCtrl')
 
 module.exports.displaySellProduct = (req, res) => {
   res.render('sellProduct');
