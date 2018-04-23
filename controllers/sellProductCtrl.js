@@ -19,15 +19,15 @@ if(dd<10) {
 if(mm<10) {
     mm = '0'+mm
 } 
-today = mm + '/' + dd + '/' + yyyy;
+today = yyyy + '-' + mm + '-' + dd;
 
 module.exports.sellProduct = (req, res, next) => {
   const { Product, User } = req.app.get('models');
   req.body.user_id = req.session.passport.user.id;
   req.body.listing_date = today;
   Product.create(req.body).then(product => {
-    // res.json(data);
-    res.render("productDetail", {product})
+    res.json(product);
+    // res.render("productDetail", {product})
   });
 };
 
