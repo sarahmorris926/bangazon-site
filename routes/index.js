@@ -3,6 +3,8 @@
 const { Router } = require('express');
 const router = Router();
 
+
+
 router.get('/', (req, res, next) => {
   res.render('index');
 });
@@ -13,6 +15,7 @@ router.use(require('./productDetailRoute'));
 router.use(require('./productRoute'));
 router.use(require('./paymentTypeRoute'));
 router.use(require('./profileRoute'));
+router.use(require('./myProductsRoute'));
 // router.use(require('./foo'));
 
 module.exports = router;
