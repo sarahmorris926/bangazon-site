@@ -1,10 +1,4 @@
-doctype html
-html
-  head
-    title Add Payment Type
-    include stylesheets.pug
-  body
-    include ./partials/nav.pug
+extends addPaymentType.pug
     
-  block content
-    h1 You have successfully added payment type #{payment_type.payment_type_name}!
+block content
+    h3 You have successfully added payment type #{payment_type.payment_type_name}!
