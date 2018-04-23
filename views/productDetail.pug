@@ -15,7 +15,8 @@ html
     
   button#addToOrder add product to order
   -var id = session.passport.user.id
-  a(href='/cart/' + id) add product to order
+  a(href='/cart') add product to order
 
   script
+      include ../node_modules/jquery/dist/jquery.min.js
       include ../client/product.js
