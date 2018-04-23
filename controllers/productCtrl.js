@@ -15,7 +15,7 @@ module.exports.getLatestProducts = (req, res, next) => {
             let productsByDate = orderByDate(products);
             console.log("productsByDate", productsByDate);
             res.render("home", {
-                products
+                productsByDate
             });
         });
 }
