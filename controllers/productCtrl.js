@@ -55,7 +55,7 @@ module.exports.getUserProducts = (req, res, next) => {
         include: [{model: Product_Type, attributes: ["label"]}]
     })
     .then( products => {
-        console.log("user products", products);
+        console.log("user products length", products.length);
         res.render('myProducts', {products})
     })
 }

@@ -8,9 +8,9 @@ html
     
   block content
     h2 My Products
-    each product in products
-        if products.length > 0
+    if products.length > 0
+        each product in products
             h5 Product: #{product.product_name} 
             button(type="delete" id="paymentProductDelete" value="Delete") Delete
-        else
-            h2 You currently have no products listed.
+    else
+        h2 You currently have no products listed.
