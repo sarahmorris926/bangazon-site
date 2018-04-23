@@ -3,6 +3,7 @@
 const express = require('express');
 const app = express();
 const passport = require('passport');
+const {getProductDetails} = require('./productDetailCtrl')
 
 module.exports.displaySellProduct = (req, res) => {
   res.render('sellProduct');
@@ -25,16 +26,9 @@ module.exports.sellProduct = (req, res, next) => {
   const { Product, User } = req.app.get('models');
   req.body.user_id = req.session.passport.user.id;
   req.body.listing_date = today;
-  Product.create(req.body).then(data => {
-    res.render("productDetail", {data})
+  Product.create(req.body).then(product => {
+    // res.json(data);
+    res.render("productDetail", {product})
   });
 };
 
-// app.post("/directors", (req, res, next) => {
-//   console.log("req.body", req.body);
-//   Director.create(req.body).then(data => {
-//     // We get the added obj back with its ID. AWESOME
-//     console.log("New director", data.name);
-//     res.json(data);
-//   });
-// });
