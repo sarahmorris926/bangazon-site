@@ -59,3 +59,18 @@ Users are now able to click on the 'Profile' link and add a Payment Type to thei
 4. Fill out the required fields and click submit.
 5. User will be see a message that lets them know their payment type has been added.
 6. Click on the **_Return to Payment Types_** link to add another Payment Type.
+
+
+# View the homepage with the 20 most recent items
+
+Before testing, please be sure to update your DB to ensure that you have the latest JSON information added to your tables. 
+
+``` node build_db.js 
+```
+
+Ensure your local host is running by using the following in your terminal: 
+
+``` npm start
+```
+
+Visit ```localhost:8080``` and register / log in. Once you are logged in, select "Home" in the navbar. This will take you to the home page which will have the 20 newest items listed. 
