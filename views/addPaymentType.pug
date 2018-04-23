@@ -7,7 +7,7 @@ html
     include ./partials/nav.pug
     
   block content
-    h1 Add New Payment Type
+    h2 Add New Payment Type
     form#addPaymentType(name="addPaymentType" method="post" action="/payment-types")
         label(for="PaymentTypeName") Payment Type Name
         input.text(id="paymentTypeName" name="payment_type_name" type="text")

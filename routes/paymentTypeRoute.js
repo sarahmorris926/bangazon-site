@@ -1,3 +1,5 @@
+"use strict";
+
 const { Router } = require('express');
 const router = Router();
 const { addPaymentType, displayPaymentTypeForm, getAllPaymentTypes } = require('../controllers/paymentTypeCtrl');
