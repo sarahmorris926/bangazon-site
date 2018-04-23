@@ -6,16 +6,19 @@ const passport = require("passport");
 
 
 module.exports.getLatestProducts = (req, res, next) => {
-    console.log("tdog");
     const { Product } = req.app.get("models");
     Product.findAll({
         raw: true
     })
         .then(products => {
+            let prodArray = [];
             let productsByDate = orderByDate(products);
-            console.log("productsByDate", productsByDate);
+            for (let i = 0; i < 20; i++) {
+                prodArray.push(productsByDate[i]);
+            };
+            console.log(products);
             res.render("home", {
-                productsByDate
+                prodArray
             });
         });
 }

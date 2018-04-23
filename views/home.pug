@@ -1,8 +1,7 @@
 extends index.pug
 
 block content
-  h1 All
-  each product in productsByDate
+  each product in prodArray
     ul
       a(href=`/product/${product.id}`) #{product.product_name}
       li #{product.description}
