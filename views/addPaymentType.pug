@@ -8,7 +8,7 @@ html
     
   block content
     h1 Add New Payment Type
-    form#signin(name="addPaymentType" method="post" action="/payment-types")
+    form#addPaymentType(name="addPaymentType" method="post" action="/payment-types")
         label(for="PaymentTypeName") Payment Type Name
         input.text(id="paymentTypeName" name="payment_type_name" type="text")
         label(for="accountNumber") Account Number

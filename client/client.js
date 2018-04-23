@@ -9,6 +9,10 @@ document.getElementById("showRegister").addEventListener('click', () => {
   location.href = `${location.origin}/register`;
 });
 
+document.getElementById("returnToPaymentType").addEventListener('click', () => {
+  location.href = `${location.origin}/payment-types`;
+});
+
 
 
 
