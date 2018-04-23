@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title Complete Order
+    include stylesheets.pug
+  body
+    include ./partials/nav.pug
+    
+  block content
+    h1 Available Payment Types
+        each paymentType in paymentTypes
+            h2 #{paymentType.payment_type_name}
