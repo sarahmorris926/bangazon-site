@@ -34,7 +34,7 @@ module.exports.postOrderProduct = (req, res, next) => {
       console.log(order.get({
         plain: true
       }))
-      order.addProduct({id:8});
+      order.addProduct(order.user_id);
       console.log(created)
     })
   };
