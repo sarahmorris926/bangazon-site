@@ -7,7 +7,7 @@ const router = Router();
 const { postOrderProduct} = require('../controllers/productCtrl');
 
 
-router.post("/cart", postOrderProduct);
+router.post("/cart/:id", postOrderProduct);
 
 
 module.exports = router;
