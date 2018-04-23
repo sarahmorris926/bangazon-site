@@ -26,8 +26,7 @@ module.exports.sellProduct = (req, res, next) => {
   req.body.user_id = req.session.passport.user.id;
   req.body.listing_date = today;
   Product.create(req.body).then(product => {
-    res.json(product);
-    // res.render("productDetail", {product})
+    res.render("productDetail", {product})
   });
 };
 
