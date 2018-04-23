@@ -23,11 +23,9 @@ today = mm + '/' + dd + '/' + yyyy;
 
 module.exports.sellProduct = (req, res, next) => {
   const { Product, User } = req.app.get('models');
-  console.log("SESSION PASSPORT", req.session.passport.user.id)
   req.body.user_id = req.session.passport.user.id;
   req.body.listing_date = today;
   Product.create(req.body).then(data => {
-    console.log("new data", data);
     res.render("productDetail", {data})
   });
 };
