@@ -16,7 +16,6 @@ module.exports.getLatestProducts = (req, res, next) => {
             for (let i = 0; i < 20; i++) {
                 prodArray.push(productsByDate[i]);
             };
-            console.log(products);
             res.render("home", {
                 prodArray
             });

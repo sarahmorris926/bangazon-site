@@ -45,3 +45,17 @@ http://localhost:8080/product/<id>
 ```
 
 You will then see the product details for the product you have selected!
+
+
+# Add Payment Types
+
+Users are now able to click on the 'Profile' link and add a Payment Type to their account.
+
+## To Add a New Payment Type
+
+1. Login as an existing user, or register as a new user.
+2. Once logged in click on the **Profile** link within the nav.
+3. Next, click on the **_Add Payment Type_** link.
+4. Fill out the required fields and click submit.
+5. User will be see a message that lets them know their payment type has been added.
+6. Click on the **_Return to Payment Types_** link to add another Payment Type.

@@ -13,6 +13,8 @@ router.get('/', (req, res, next) => {
 router.use(require('./authRoute'));
 router.use(require('./productDetailRoute'));
 router.use(require('./productRoute'));
+router.use(require('./paymentTypeRoute'));
+router.use(require('./profileRoute'));
 // router.use(require('./foo'));
 
 module.exports = router;
