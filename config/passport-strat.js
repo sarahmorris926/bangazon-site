@@ -59,7 +59,7 @@ const RegistrationStrategy = new Strategy(
             return done(null, false);
           }
           if (newUser) {
-            console.log("newUser", newUser);
+            // console.log("newUser", newUser);
             return done(null, newUser);
           }
         });

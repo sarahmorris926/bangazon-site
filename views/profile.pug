@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title Product Details
+    include stylesheets.pug
+  body
+    include ./partials/nav.pug
+    
+  block content
+    h1 Profile Settings
+    h3 #{user.first_name}'s Account Details.
+    a(class="nav-item nav-link" id="addPaymentType" href="/payment-types") Add Payment Type
