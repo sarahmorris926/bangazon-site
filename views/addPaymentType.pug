@@ -10,9 +10,9 @@ html
     h2 Add New Payment Type
     form#addPaymentType(name="addPaymentType" method="post" action="/payment-types")
         label(for="PaymentTypeName") Payment Type Name
-        input.text(id="paymentTypeName" name="payment_type_name" type="text")
+        input.text(id="paymentTypeName" name="payment_type_name" type="text" required="required" pattern="[A-Za-z0-9]{1,20}")
         label(for="accountNumber") Account Number
-        input.text(name="account_number" type="number")
+        input.text(name="account_number" type="number" required="required")
         input.btn(type="submit" id="paymentTypeSubmit" value="Submit")
     
     h3 Existing Payment Types
