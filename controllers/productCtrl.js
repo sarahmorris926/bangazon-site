@@ -49,7 +49,7 @@ module.exports.displayProductsByCategory = (req, res, next) => {
 
 module.exports.getActiveOrder = (req, res, next) => {
     const { Orders, Product } = req.app.get("models");
-    if (req.session.passport.user != undefined) { 
+    if (req.session.passport != undefined) { 
         Orders.findOne({
             raw: true,
             where: { user_id: req.session.passport.user.id, payment_type_id: null }
@@ -61,7 +61,6 @@ module.exports.getActiveOrder = (req, res, next) => {
             );   
         });
     } else {
-        console.log("hey!");
         res.redirect("/login");
     }
 }
