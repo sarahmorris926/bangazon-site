@@ -11,6 +11,10 @@ html
     if products.length > 0
         each product in products
             h5 Product: #{product.product_name} 
-            button(type="delete" id="paymentProductDelete" value="Delete") Delete
+            h6 Quantity: #{product.quantity}
+            button(type="delete" class="productDelete" id=`${product.id}` value="Delete") Delete
     else
         h2 You currently have no products listed.
+
+    script
+      include ../client/delete.js

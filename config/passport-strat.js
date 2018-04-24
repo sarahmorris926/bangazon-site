@@ -86,7 +86,7 @@ const LoginStrategy = new Strategy(
 
     User.findOne({ where: { email } })
       .then(user => {
-        console.log("username stuff", user);
+        // console.log("username stuff", user);
 
         if (!user) {
           return done(null, false, {

@@ -18,6 +18,16 @@ document.getElementById("returnToPaymentType").addEventListener('click', () => {
   location.href = `${location.origin}/payment-types`;
 });
 
+// document.getElementsByClassName("productDelete").addEventListener('click', function() {
+//   console.log("This is the event", event.currentTarget);
+// })
+
+// window.addEventListener("click", function(event) {
+//     let productId = event.currentTarget;
+//     console.log("product id", productId);
+// });
+
+
 
 
 
