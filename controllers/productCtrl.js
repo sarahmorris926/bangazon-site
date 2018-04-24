@@ -43,19 +43,12 @@ module.exports.deleteProduct = (req, res, next) => {
         where: {id: req.params.id }
     })
     .then( () => {
-        Product.findAll( {
-            raw: true,
-            where: {user_id: req.session.passport.user.id},
-            include: [{model: Product_Type, attributes: ["label"]}]
-        })
-        .then( products => {
-            res.render('myProducts', {products})
-        })
-        // console.log(`Product has been deleted`);
-        // // res.render('myProducts', {products})
-        // module.exports.getUserProducts;
+        console.log(`Product has been deleted`);
+        // res.render('myProducts', {products})
+        next();
     })
     .catch( error => {
+        console.log('error hereererere', error);
         res.status(500).json(error);
         next(error);
     });
@@ -94,11 +87,14 @@ module.exports.getUserProducts = (req, res, next) => {
     const { Product, Product_Type } = req.app.get("models");
     Product.findAll( {
         raw: true,
-        where: {user_id: req.session.passport.user.id},
+        where: {user_id: req.user.id},
         include: [{model: Product_Type, attributes: ["label"]}]
     })
     .then( products => {
         res.render('myProducts', {products})
+    })
+    .catch ( error => {
+        console.log("error cant get users products", error);
     })
 }
 
