@@ -9,9 +9,11 @@ html
     h2 My Cart
 
   block content
-    h1 #{order.user_id}
-    h1 #{order.order_creation_date}
+    if order.length > 0
+        h1 #{order.user_id}
+        h1 #{order.order_creation_date}
+    else
+        h2 You're cart is empty!    
 
     script
       include ../client/client.js
-      
