@@ -83,3 +83,12 @@ npm start
 ``` 
 
 You can then go to `localhost:8080/` and login. Once logged in, you should see the "Sell a Product" link in the nav bar - click that to go to the form. Fill out the form (with text/numbers for name and description, and numbers for quantity and price - otherwise you'll get an error) and click "Submit". You will be taken to the product detail view for your new product. You can either go Home and see the most recently added products, or click the "Sell a Product" button again to go back and add another product.
+
+#View Product Categories and Product in Categories
+
+Start your server using:
+```
+npm start
+```
+
+You can then go to `localhost:8080/` and login. Once logged in, please click the "Product Categories" button in the nav bar and you can view the product category list. Then, you can select a product category and view product category details. 

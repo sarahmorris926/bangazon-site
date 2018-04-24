@@ -102,3 +102,16 @@ module.exports.getUserProducts = (req, res, next) => {
     })
 }
 
+module.exports.displayProductsByCategory = (req, res, next) => {
+    const { Product } = req.app.get("models");
+    Product.findAll({
+        raw: true,
+        where: {product_type_id: req.params.id},
+    })
+        .then(products=> {
+        res.render("productsDetail", {
+            products
+        });
+    });
+};
+
