@@ -87,6 +87,94 @@
       "description": "Try to transmit the SMS protocol, maybe it will program the digital system!",
       "user_id": 2,
       "listing_date": "2017-06-15"
+    },
+    {
+      "product_name": "Fantastic Plastic Car",
+      "product_type_id": 1,
+      "price": 810.00,
+      "description": "I'll generate the optical IB bus, that should firewall the XML panel!",
+      "user_id": 1,          
+      "listing_date": "2018-03-04"
+    },
+    {
+      "product_name": "Incredible Cool Fridge",
+      "product_type_id": 2,
+      "price": 1007.00,
+      "description": "I'll parse the virtual COM application, that should card the SSL protocol!",
+      "user_id": 1,
+      "listing_date": "2017-11-02"
+    },
+    {
+      "product_name": "Unbranded Copper Elephant",
+      "product_type_id": 3,
+      "price": 420.00,
+      "description": "calculating the pixel won't do anything, we need to generate the 1080p RSS program!",
+      "user_id": 1,
+      "listing_date": "2017-02-05"
+    },
+    {
+      "product_name": "Practical Hard Wig",
+      "product_type_id": 4,
+      "price": 640.00,
+      "description": "You can't synthesize the circuit without overriding the digital GB array!",
+      "user_id": 1,
+      "listing_date": "2017-09-15"
+    },
+    {
+      "product_name": "Amazing Sick Wrench",
+      "product_type_id": 5,
+      "price": 1.00,
+      "description": "If we override the program, we can get to the JBOD array through the online SCSI system!",
+      "user_id": 1,
+      "listing_date": "2018-02-27"
+    },
+    {
+      "product_name": "Intelligent Platinum Tie",
+      "product_type_id": 6,
+      "price": 64.00,
+      "description": "We need to index the neural SSL microchip!",
+      "user_id": 1,
+      "listing_date": "2017-12-26"
+    },
+    {
+      "product_name": "Sleek Tarnished Bat",
+      "product_type_id": 7,
+      "price": 711.00,
+      "description": "Try to copy the SAS hard drive, maybe it will reboot the solid state sensor!",
+      "user_id": 2,
+      "listing_date": "2018-01-03"
+    },
+    {
+      "product_name": "Licensed Brick Dress",
+      "product_type_id": 8,
+      "price": 1993.00,
+      "description": "We need to synthesize the multi-byte AGP feed!",
+      "user_id": 2,
+      "listing_date": "2017-02-02"
+    },
+    {
+      "product_name": "Ergonomic Clay Lazer",
+      "product_type_id": 9,
+      "price": 12.00,
+      "description": "Use the cross-platform RSS matrix, then you can back up the solid state application!",
+      "user_id": 2,
+      "listing_date": "2018-04-12"
+    },
+    {
+      "product_name": "Handmade Grasswoven Mascot",
+      "product_type_id": 10,
+      "price": 4112.00,
+      "description": "overriding the system won't do anything, we need to transmit the online FTP bandwidth!",
+      "user_id": 2,
+      "listing_date": "2017-12-28"
+    },
+    {
+      "product_name": "Awesome Chocholate Mouse",
+      "product_type_id": 11,
+      "price": 431.00,
+      "description": "Try to transmit the SMS protocol, maybe it will program the digital system!",
+      "user_id": 2,
+      "listing_date": "2017-04-25"
     }
   ]
 }

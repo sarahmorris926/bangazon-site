@@ -45,3 +45,41 @@ http://localhost:8080/product/<id>
 ```
 
 You will then see the product details for the product you have selected!
+
+
+# Add Payment Types
+
+Users are now able to click on the 'Profile' link and add a Payment Type to their account.
+
+## To Add a New Payment Type
+
+1. Login as an existing user, or register as a new user.
+2. Once logged in click on the **Profile** link within the nav.
+3. Next, click on the **_Add Payment Type_** link.
+4. Fill out the required fields and click submit.
+5. User will be see a message that lets them know their payment type has been added.
+6. Click on the **_Return to Payment Types_** link to add another Payment Type.
+
+
+# View the homepage with the 20 most recent items
+
+Before testing, please be sure to update your DB to ensure that you have the latest JSON information added to your tables. 
+
+``` node build_db.js 
+```
+
+Ensure your local host is running by using the following in your terminal: 
+
+``` npm start
+```
+
+Visit ```localhost:8080``` and register / log in. Once you are logged in, select "Home" in the navbar. This will take you to the home page which will have the 20 newest items listed. 
+
+# Add a product to sell
+
+Start your server using: 
+```
+npm start
+``` 
+
+You can then go to `localhost:8080/` and login. Once logged in, you should see the "Sell a Product" link in the nav bar - click that to go to the form. Fill out the form (with text/numbers for name and description, and numbers for quantity and price - otherwise you'll get an error) and click "Submit". You will be taken to the product detail view for your new product. You can either go Home and see the most recently added products, or click the "Sell a Product" button again to go back and add another product.
