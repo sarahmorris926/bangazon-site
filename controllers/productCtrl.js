@@ -34,3 +34,16 @@ const orderByDate = (array) => {
     return array.sort(compareNumbers);
 }
 
+module.exports.displayProductsByCategory = (req, res, next) => {
+    const { Product } = req.app.get("models");
+    // const { Product_Type } = req.app.get("models");
+    Product.findOne({
+        raw: true,
+        where: {id: req.params.id},
+    })
+        .then(product=> {
+        res.render("productDetail", {
+            product
+        });
+    });
+};
