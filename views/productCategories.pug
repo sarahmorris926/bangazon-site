@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title Product Category
+    include stylesheets.pug
+  body
+    include ./partials/nav.pug
+    
+  block content
+    h1 Product Category
+      each product_type in Product_Types
+        ul 
+          a(href=`/products/${product_type.id}`) #{product_type.label}
+  
