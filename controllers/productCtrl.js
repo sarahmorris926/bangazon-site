@@ -59,4 +59,8 @@ const orderByDate = (array) => {
 
 module.exports.getActiveOrder = (req, res, next) => {
     const { Order, Product } = req.app.get("models");
+    Order. findOne({
+        raw: true,
+        where: { customer_id: req.session.passport.user.id }
+    })
 }
