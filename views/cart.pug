@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title cart
+    include stylesheets.pug
+  body
+    include partials/nav.pug
+    h1 Cart
+    h2 My Cart
+
+  block content
+    h1 #{order.user_id}
+    h1 #{order.order_creation_date}
+
+    script
+      include ../client/client.js
+      
