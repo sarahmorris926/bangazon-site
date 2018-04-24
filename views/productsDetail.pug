@@ -12,3 +12,7 @@ html
         h4 #{product.description}
         h5 #{product.quantity}
         h5 #{product.price}
+        button(id=`${product.id}`) add product to order
+script
+      include ../node_modules/jquery/dist/jquery.min.js
+      include ../client/productCat.js
