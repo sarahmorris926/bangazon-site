@@ -74,3 +74,12 @@ Ensure your local host is running by using the following in your terminal:
 ```
 
 Visit ```localhost:8080``` and register / log in. Once you are logged in, select "Home" in the navbar. This will take you to the home page which will have the 20 newest items listed. 
+
+# Add a product to sell
+
+Start your server using: 
+```
+npm start
+``` 
+
+You can then go to `localhost:8080/` and login. Once logged in, you should see the "Sell a Product" link in the nav bar - click that to go to the form. Fill out the form (with text/numbers for name and description, and numbers for quantity and price - otherwise you'll get an error) and click "Submit". You will be taken to the product detail view for your new product. You can either go Home and see the most recently added products, or click the "Sell a Product" button again to go back and add another product.
