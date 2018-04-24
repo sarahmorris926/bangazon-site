@@ -36,14 +36,13 @@ const orderByDate = (array) => {
 
 module.exports.displayProductsByCategory = (req, res, next) => {
     const { Product } = req.app.get("models");
-    // const { Product_Type } = req.app.get("models");
-    Product.findOne({
+    Product.findAll({
         raw: true,
-        where: {id: req.params.id},
+        where: {product_type_id: req.params.id},
     })
-        .then(product=> {
-        res.render("productDetail", {
-            product
+        .then(products=> {
+        res.render("productsDetail", {
+            products
         });
     });
 };
