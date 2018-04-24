@@ -15,7 +15,8 @@ module.exports.postOrderProduct = (req, res, next) => {
 
   const {
     Orders,
-    Product
+    Product,
+    order_product
   } = req.app.get("models");
 
   //find order or make a new one 
@@ -37,7 +38,7 @@ module.exports.postOrderProduct = (req, res, next) => {
         .then(product => {
           Orders.findById(instance.id)
             .then(instance => {
-              instance.addProduct(product);
+              order_product.create({OrderId:instance.id,ProductId:req.params.id})
             })
         })
     })
