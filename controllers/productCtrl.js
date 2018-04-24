@@ -8,7 +8,19 @@ const passport = require("passport");
 
 module.exports.postOrderProduct = (req, res, next) => {
   let orderToAddTo;
-
+  
+  let day = new Date();
+  let dd = day.getDate();
+  let mm = day.getMonth()+1;
+  let yyyy = day.getFullYear();
+  if(dd<10) {
+    dd = '0'+dd
+  } 
+  if(mm<10) {
+    mm = '0'+mm
+  } 
+  day = yyyy + '-' + mm + '-' + dd;
+  
   const {
     Orders,
     Product,
@@ -23,7 +35,7 @@ module.exports.postOrderProduct = (req, res, next) => {
         user_id: req.session.passport.user.id
       },
       defaults: {
-        order_creation_date: '2018-04-23'
+        order_creation_date: `${day}`
       }
     })
     .spread((instance, created) => {
