@@ -54,6 +54,53 @@ module.exports.deleteProduct = (req, res, next) => {
     });
 }
 
+module.exports.postOrderProduct = (req, res, next) => {
+  let orderToAddTo;
+  
+  let day = new Date();
+  let dd = day.getDate();
+  let mm = day.getMonth()+1;
+  let yyyy = day.getFullYear();
+  if(dd<10) {
+    dd = '0'+dd
+  } 
+  if(mm<10) {
+    mm = '0'+mm
+  } 
+  day = yyyy + '-' + mm + '-' + dd;
+  
+  const {
+    Orders,
+    Product,
+    order_product
+  } = req.app.get("models");
+
+ 
+  Orders.findOrCreate({
+      raw: true,
+      where: {
+        payment_type_id: null,
+        user_id: req.session.passport.user.id
+      },
+      defaults: {
+        order_creation_date: `${day}`
+      }
+    })
+    .spread((instance, created) => {
+      orderToAddTo = instance;
+      console.log(instance, created, "i N ST A  DNSDF ");
+      Product.findById(req.params.id)
+        .then(product => {
+          Orders.findById(instance.id)
+            .then(instance => {
+              order_product.create({OrderId:instance.id,ProductId:req.params.id})
+            })
+        })
+    })
+    .catch(err => {
+      console.log(err, "error");
+    })
+};
 
 module.exports.getLatestProducts = (req, res, next) => {
     const { Product } = req.app.get("models");
