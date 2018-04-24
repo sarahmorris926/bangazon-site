@@ -34,3 +34,29 @@ const orderByDate = (array) => {
     return array.sort(compareNumbers);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+module.exports.getActiveOrder = (req, res, next) => {
+    const { Order, Product } = req.app.get("models");
+}
