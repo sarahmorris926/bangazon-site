@@ -12,6 +12,7 @@ router.get('/', (req, res, next) => {
 // pipe all other requests through the route modules
 router.use(require('./authRoute'));
 router.use(require('./productDetailRoute'));
+router.use(require('./cartRoute'));
 router.use(require('./sellProductRoute'));
 router.use(require('./productRoute'));
 router.use(require('./paymentTypeRoute'));

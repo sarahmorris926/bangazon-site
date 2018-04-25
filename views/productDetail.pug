@@ -11,4 +11,12 @@ html
       h4 #{product.description}
       h5 #{product.quantity}
       h5 #{product.price}
+    
+  button#addToOrder add product to order
+  -var id = session.passport.user.id
+  //- a(href='/cart') add product to order
 
+
+  script
+      include ../node_modules/jquery/dist/jquery.min.js
+      include ../client/product.js
