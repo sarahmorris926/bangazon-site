@@ -4,17 +4,19 @@ html
     include stylesheets.pug
   body
     include ./partials/nav.pug
-    
-  block content
-    each product in products
-      h1 Product Details
-        h2 #{product.product_name}
-        h4 #{product.description}
-        h5 #{product.quantity}
-        h5 #{product.price}
 
-        if session.passport
-          button(id=`${product.id}`) add product to order
+    block content
+      each product in products
+        h1 Product Details
+          h2 #{product.product_name}
+          h4 #{product.description}
+          h5 #{product.quantity}
+          h5 #{product.price}
+
+          if session.passport
+            button(id=`${product.id}`) add product to order
+
+
 script
       include ../node_modules/jquery/dist/jquery.min.js
       include ../client/productCat.js

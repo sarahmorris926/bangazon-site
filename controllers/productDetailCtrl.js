@@ -18,3 +18,21 @@ module.exports.getProductDetails = (req, res, next) => {
         });
     });
 };
+
+
+// module.exports.getActiveOrder = (req, res, next) => {
+//   const { Orders, Product } = req.app.get("models");
+//   if (req.session.passport != undefined) { 
+//       Orders.findOne({
+//           raw: true,
+//           where: { user_id: req.session.passport.user.id, payment_type_id: null }
+//       })
+//           .then(order => {
+//               res.render("cart", {
+//                   order
+//               }
+//           );   
+//       });
+//   } else {
+//       res.redirect("/login");
+//   }
