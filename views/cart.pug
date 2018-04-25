@@ -19,8 +19,9 @@ html
     button#completeOrder Complete Order
 
     each paymentType in paymentTypes
-      div.isHidden
+      div#paymentTypes.isHidden
         h5 #{paymentType.payment_type_name}    
-        h5 #{paymentType.account_number}    
+        h5 #{paymentType.account_number}   
+        button(class="payClick" id=`${paymentType.id}`) Select Payment
     script
       include ../client/cart.js
