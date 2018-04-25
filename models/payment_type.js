@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   var Payment_Type = sequelize.define('Payment_Type', {
     payment_type_name: DataTypes.STRING,
