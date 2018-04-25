@@ -110,17 +110,21 @@ const orderByDate = (array) => {
 
 module.exports.getUserProducts = (req, res, next) => {
     const { Product, Product_Type } = req.app.get("models");
-    Product.findAll( {
-        raw: true,
-        where: {user_id: req.user.id},
-        include: [{model: Product_Type, attributes: ["label"]}]
-    })
-    .then( products => {
-        res.render('myProducts', {products})
-    })
-    .catch ( error => {
-        console.log("error cant get users products", error);
-    })
+    if (req.session.passport != undefined) { 
+        Product.findAll( {
+            raw: true,
+            where: {user_id: req.user.id},
+            include: [{model: Product_Type, attributes: ["label"]}]
+        })
+        .then( products => {
+            res.render('myProducts', {products})
+        })
+        .catch ( error => {
+            console.log("error cant get users products", error);
+        })
+    } else {
+        res.redirect("/login");
+    }
 }
 
 module.exports.displayProductsByCategory = (req, res, next) => {

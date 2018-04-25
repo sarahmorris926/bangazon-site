@@ -1,5 +1,7 @@
 window.addEventListener("click", function(event) {
-    if (event.target.id > 0) {
+    if (+event.target.id > 0) {
+        console.log("event.target.id", event.target.id);
+        console.log("what is this", typeof +event.target.id)
         let productId = event.target.id;
         console.log("product id", productId);
         fetch(`/myproducts/${productId}`, {
@@ -7,7 +9,7 @@ window.addEventListener("click", function(event) {
             credentials: "include"
         })
         .then( function(response) {
-            document.location.reload(true);
+            // window.location.reload(true);
             console.log("response", response);
             return response;
         })
