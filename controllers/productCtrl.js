@@ -5,6 +5,23 @@ const app = express();
 const passport = require("passport");
 
 
+module.exports.getAllProducts = (req, res, next) => {
+  const { Product } = req.app.get("models");
+  Product.findAll({
+      raw: true
+  })
+      .then(products => {
+          let prodArray = [];
+          let productsByDate = orderByDate(products);
+          for (let i = 0; i < products.length; i++) {
+              prodArray.push(productsByDate[i]);
+          };
+          res.render("allProducts", {
+              prodArray
+          });
+      });
+}
+
 
 module.exports.postOrderProduct = (req, res, next) => {
   let orderToAddTo;
