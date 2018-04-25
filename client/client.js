@@ -18,6 +18,8 @@ document.getElementById("returnToPaymentType").addEventListener('click', () => {
   location.href = `${location.origin}/payment-types`;
 });
 
-
+document.getElementById("completeOrder").addEventListener('click', () => {
+  console.log('tight');
+})
 
 

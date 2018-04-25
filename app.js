@@ -23,6 +23,7 @@ let routes = require('./routes/');
 
 // Begin middleware stack
 // Inject session persistence into middleware stack
+app.use(express.static(__dirname + "/public"));
 app.use(session({
   secret: 'keyboard cat',
   resave: true,

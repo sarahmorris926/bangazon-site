@@ -1,0 +1,7 @@
+body {
+    background-color: palegreen;
+}
+
+.isHidden {
+    visibility: hidden;
+}

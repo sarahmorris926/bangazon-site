@@ -14,11 +14,13 @@ html
         h1 #{product.product_name}
         h2 #{product.price}
         h6 #{product.product_description}
-      button(type="submit" class="showPaymentTypes" id=`${order.id}` value="Submit" ) Complete Order
     else
         h2 You're cart is empty!    
+    button#completeOrder Complete Order
 
     each paymentType in paymentTypes
-      h1 #{paymentType.payment_type_name}    
+      div.isHidden
+        h5 #{paymentType.payment_type_name}    
+        h5 #{paymentType.account_number}    
     script
-      include ../client/client.js
+      include ../client/cart.js
