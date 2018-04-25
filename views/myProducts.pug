@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Add Payment Type
+    include stylesheets.pug
+  body
+    include ./partials/nav.pug
+    
+  block content
+    h2 My Products
+    if products.length > 0
+        each product in products
+            h5 Product: #{product.product_name} 
+            h6 Quantity: #{product.quantity}
+            button(type="delete" class="productDelete" id=`${product.id}` value="Delete" onClick="window.location.reload()") Delete
+    else
+        h2 You currently have no products listed.
+
+    script
+      include ../client/delete.js
