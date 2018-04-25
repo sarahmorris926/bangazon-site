@@ -9,7 +9,6 @@ document.getElementById("showRegister").addEventListener('click', () => {
   location.href = `${location.origin}/register`;
 });
 
-
 document.getElementById("sellProductSubmit").addEventListener('click', () => {
   location.href = `${location.origin}/product/${id}`
 });
@@ -21,5 +20,7 @@ document.getElementById("returnToPaymentType").addEventListener('click', () => {
 document.getElementById("completeOrder").addEventListener('click', () => {
   console.log('tight');
 })
+
+
 
 
