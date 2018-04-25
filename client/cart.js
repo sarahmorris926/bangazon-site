@@ -7,5 +7,10 @@ document.getElementById("completeOrder").addEventListener('click', (e) => {
     });
 
 document.getElementsByClassName("payClick")[0].addEventListener('click', (e) => {
-    console.log(this.parent);
+    let id = +e.target.id;
+    $.ajax({
+        url:`${location.origin}/payment/${id}`,
+        type:'patch',
+        data:{}
+    })
 })

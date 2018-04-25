@@ -137,3 +137,20 @@ module.exports.getActiveOrder = (req, res, next) => {
     }
 }
 
+module.exports.completeOrder = (req, res, next) => {
+    const { Orders } = req.app.get('models');
+    Orders.find({
+        raw: true,
+        where: { user_id: req.session.passport.user.id, payment_type_id: null }
+    })
+        .then(order => {
+            console.log('order', order);
+            order.updateAttributes(order, {payment_type_id: req.params.id})
+            .then(updated => {
+                res.send(200).json(updated);
+            })
+        })
+        .catch (err => {
+            console.log("ERROR", err);
+        })
+}
