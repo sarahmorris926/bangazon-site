@@ -3,8 +3,34 @@
 const express = require("express");
 const app = express();
 const passport = require("passport");
+const flash = require('express-flash');
 
 
+module.exports.deleteProduct = (req, res, next) => {
+    const { Product, order_product } = req.app.get("models");
+    order_product.findOne({
+        raw: true,
+        where: {ProductId: req.params.id }
+    })
+    .then( product => {
+        // console.log('delete Product - what are you?', product);
+        if(product) {
+            res.render('cantDelete')
+            // res.flash('error', "This cannot be deleted. The product is currently attached to an order.")
+        } else {
+            Product.destroy( {
+                where: {id: req.params.id }
+            })
+            .then( (product) => {
+                console.log(`Product has been deleted`);
+            })
+            .catch( error => {
+                res.status(500).json(error);
+                next(error);
+            });
+        }
+    })
+}
 
 module.exports.postOrderProduct = (req, res, next) => {
   let orderToAddTo;
@@ -53,6 +79,7 @@ module.exports.postOrderProduct = (req, res, next) => {
       console.log(err, "error");
     })
 };
+
 module.exports.getLatestProducts = (req, res, next) => {
     const { Product } = req.app.get("models");
     Product.findAll({
@@ -70,7 +97,6 @@ module.exports.getLatestProducts = (req, res, next) => {
         });
 }
 
-
 function compareNumbers(a, b) {
     if (a.listing_date > b.listing_date)
         return -1;
@@ -80,6 +106,25 @@ function compareNumbers(a, b) {
 }
 const orderByDate = (array) => {
     return array.sort(compareNumbers);
+}
+
+module.exports.getUserProducts = (req, res, next) => {
+    const { Product, Product_Type } = req.app.get("models");
+    if (req.session.passport != undefined) { 
+        Product.findAll( {
+            raw: true,
+            where: {user_id: req.user.id},
+            include: [{model: Product_Type, attributes: ["label"]}]
+        })
+        .then( products => {
+            res.render('myProducts', {products})
+        })
+        .catch ( error => {
+            console.log("error cant get users products", error);
+        })
+    } else {
+        res.redirect("/login");
+    }
 }
 
 module.exports.displayProductsByCategory = (req, res, next) => {
@@ -94,3 +139,4 @@ module.exports.displayProductsByCategory = (req, res, next) => {
         });
     });
 };
+
