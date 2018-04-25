@@ -11,9 +11,9 @@ html
       h4 #{product.description}
       h5 #{product.quantity}
       h5 #{product.price}
-    
-  button#addToOrder add product to order
-  -var id = session.passport.user.id
+      
+      if session.passport
+        button#addToOrder add product to order
   //- a(href='/cart') add product to order
 
 
