@@ -1,9 +1,10 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   var Payment_Type = sequelize.define('Payment_Type', {
     payment_type_name: DataTypes.STRING,
     user_id: DataTypes.INTEGER,
-    account_number: DataTypes.INTEGER
+    account_number: DataTypes.BIGINT
   }, {tableName: "payment_type", timestamps: false});
   Payment_Type.associate = function(models) {
     Payment_Type.belongsTo(models.User, {

@@ -5,16 +5,21 @@ html
   body
     include ./partials/nav.pug
     
-  block content
-    h1 Product Details
-      h2 #{product.product_name}
-      h4 #{product.description}
-      h5 #{product.quantity}
-      h5 #{product.price}
-    
-  button#addToOrder add product to order
-  -var id = session.passport.user.id
-  //- a(href='/cart') add product to order
+
+    unless product
+      h1 Sorry, no product with that ID!
+
+    unless !product
+      block content
+        h1 Product Details
+          h2 #{product.product_name}
+          h4 #{product.description}
+          h5 #{product.quantity}
+          h5 #{product.price}
+
+          if session.passport
+            button#addToOrder add product to order
+
 
 
   script
