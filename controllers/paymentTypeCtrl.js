@@ -35,15 +35,4 @@ module.exports.getAllPaymentTypes = (req, res, next) => {
     });
 }
 
-module.exports.selectPaymentType = (req, res, next) => {
-    const { Payment_Type } = req.app.get("models");
-    Payment_Type.findAll({
-        raw: true,
-        where: {user_id: req.session.passport.user.id}
-    })
-    .then( paymentTypes => {
-        res.render("completeOrder", {
-            paymentTypes
-        })
-    })
-}
+

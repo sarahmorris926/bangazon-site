@@ -96,37 +96,44 @@ module.exports.displayProductsByCategory = (req, res, next) => {
 };
 
 module.exports.getActiveOrder = (req, res, next) => {
-    const { Orders, Product, order_product } = req.app.get("models");
+    const { Orders, Product, order_product, Payment_Type } = req.app.get("models");
     if (req.session.passport != undefined) {
         Orders.findOne({
             raw: true,
             where: { user_id: req.session.passport.user.id, payment_type_id: null }
         })
             .then(order => {
-                order_product.findAll({
+                Payment_Type.findAll({
                     raw: true,
-                    where: { OrderId: order.id }
+                    where: { user_id: req.session.passport.user.id }
                 })
-                    .then(orderProducts => {
-                        let promiseArray = [];
-                        orderProducts.forEach(ordProd => {
-                            if(ordProd.ProductId > 0) {
-                            promiseArray.push(Product.findOne({
-                                raw: true,
-                                where: { id: ordProd.ProductId }
-                                })
-                            )}
+                    .then(paymentTypes => {
+                        order_product.findAll({
+                            raw: true,
+                            where: { OrderId: order.id }
                         })
-                        Promise.all(promiseArray)
-                            .then(products => {
-                                console.log("products", products);
-                                res.render("cart", {
-                                    products, order
-                                });
+                            .then(orderProducts => {
+                                let promiseArray = [];
+                                orderProducts.forEach(ordProd => {
+                                    if (ordProd.ProductId > 0) {
+                                        promiseArray.push(Product.findOne({
+                                            raw: true,
+                                            where: { id: ordProd.ProductId }
+                                        })
+                                        )
+                                    }
+                                })
+                                Promise.all(promiseArray)
+                                    .then(products => {
+                                        res.render("cart", {
+                                            products, order, paymentTypes
+                                        });
+                                    });
                             });
-                    });
+                    })
             })
     } else {
         res.redirect("/login");
     }
 }
+

@@ -17,5 +17,8 @@ html
       button(type="submit" class="showPaymentTypes" id=`${order.id}` value="Submit" ) Complete Order
     else
         h2 You're cart is empty!    
+
+    each paymentType in paymentTypes
+      h1 #{paymentType.payment_type_name}    
     script
       include ../client/client.js
