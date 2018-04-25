@@ -10,6 +10,6 @@ function isLoggedIn(req, res, next) {
 }
 
 router.get('/myproducts', getUserProducts, isLoggedIn);
-router.delete('/myproducts/:id', isLoggedIn, deleteProduct, getUserProducts);
+router.delete('/myproducts/:id', isLoggedIn, deleteProduct);
 
 module.exports = router;

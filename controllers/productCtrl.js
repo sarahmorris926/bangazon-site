@@ -3,55 +3,33 @@
 const express = require("express");
 const app = express();
 const passport = require("passport");
-
-
-// module.exports.deleteProduct = (req, res, next) => {
-//     const { Product, Order_Products } = req.app.get("models");
-//     // getOrders
-//     // join table is order_products
-//     Order_Products.findOne({
-//         raw: true,
-//         where: {ProductId: req.params.id }
-//     })
-//     .then( product => {
-//         if(product) {
-//             alert('This product cannot be deleted')
-//         } else {
-//             Product.destroy( {
-//                 where: {id: req.params.id }
-//             })
-//             .then( (product) => {
-//                 console.log(`Product has been deleted`);
-                    // res.render('myProducts', {products})
-
-//             })
-//             .catch( error => {
-//                 res.status(500).json(error);
-//                 next(error);
-//             });
-//         }
-//     })
-// }
-
+const flash = require('express-flash');
 
 
 module.exports.deleteProduct = (req, res, next) => {
-    const { Product } = req.app.get("models");
-    // getOrders
-    // join table is order_products
-    Product.destroy( {
-        where: {id: req.params.id }
+    const { Product, order_product } = req.app.get("models");
+    order_product.findOne({
+        raw: true,
+        where: {ProductId: req.params.id }
     })
-    .then( () => {
-        console.log(`Product has been deleted`);
-        // res.render('myProducts', {products})
-        next();
+    .then( product => {
+        // console.log('delete Product - what are you?', product);
+        if(product) {
+            res.render('cantDelete')
+            // res.flash('error', "This cannot be deleted. The product is currently attached to an order.")
+        } else {
+            Product.destroy( {
+                where: {id: req.params.id }
+            })
+            .then( (product) => {
+                console.log(`Product has been deleted`);
+            })
+            .catch( error => {
+                res.status(500).json(error);
+                next(error);
+            });
+        }
     })
-    .catch( error => {
-        console.log('error hereererere', error);
-        res.status(500).json(error);
-        next(error);
-    });
 }
 
 module.exports.postOrderProduct = (req, res, next) => {
