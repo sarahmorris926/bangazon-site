@@ -6,6 +6,23 @@ const passport = require("passport");
 const flash = require('express-flash');
 
 
+module.exports.getAllProducts = (req, res, next) => {
+  const { Product } = req.app.get("models");
+  Product.findAll({
+      raw: true
+  })
+      .then(products => {
+          let prodArray = [];
+          let productsByDate = orderByDate(products);
+          for (let i = 0; i < products.length; i++) {
+              prodArray.push(productsByDate[i]);
+          };
+          res.render("allProducts", {
+              prodArray
+          });
+      });
+}
+
 module.exports.deleteProduct = (req, res, next) => {
     const { Product, order_product } = req.app.get("models");
     order_product.findOne({
