@@ -17,4 +17,18 @@ html
       input.text(type="number" id="price" name="price" placeholder="1.0" step="0.01" min="0" required="required")
       label(for="quantity") Quantity: 
       input.text(id="quantity" name="quantity" type="number" required="required")
+      label(for="product_type_id")  Product Type
+      select(name="product_type_id" placeholder="Select Product Type" required)
+        option(value="") None
+        option(value="1") Tools
+        option(value="2") Electronics
+        option(value="3") Automotive
+        option(value="4") Jewelry
+        option(value="5") Games
+        option(value="6") Garden
+        option(value="7") Books
+        option(value="8") Industrial
+        option(value="9") Sports
+        option(value="10") Beauty
+        option(value="11") Health
       input.btn(type="submit" value="Submit" id="sellProductSubmit")
