@@ -9,12 +9,12 @@ html
     h2 My Cart
 
   block content
-    if order != undefined
+    if productArray != undefined
       each product in productArray
         h1 #{product.product_name}
         h2 #{product.price}
         h6 #{product.product_description}
-        button(type="submit" class="showPaymentTypes" id=`${order.id}` value="Submit" ) Complete Order
+      button(type="submit" class="showPaymentTypes" id=`${order.id}` value="Submit" ) Complete Order
     else
         h2 You're cart is empty!    
     script

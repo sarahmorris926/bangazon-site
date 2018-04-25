@@ -125,7 +125,7 @@ module.exports.getActiveOrder = (req, res, next) => {
                         .then(products => {
                             console.log(productArray);
                                 res.render("cart", {
-                                    productArray
+                                    productArray, order
                                 });
                             });
                     });
