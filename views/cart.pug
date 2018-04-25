@@ -9,8 +9,8 @@ html
     h2 My Cart
 
   block content
-    if productArray != undefined
-      each product in productArray
+    if products != undefined
+      each product in products
         h1 #{product.product_name}
         h2 #{product.price}
         h6 #{product.product_description}

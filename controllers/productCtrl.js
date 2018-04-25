@@ -102,34 +102,30 @@ module.exports.getActiveOrder = (req, res, next) => {
             raw: true,
             where: { user_id: req.session.passport.user.id, payment_type_id: null }
         })
-            .then(order => {               
+            .then(order => {
                 order_product.findAll({
                     raw: true,
                     where: { OrderId: order.id }
                 })
                     .then(orderProducts => {
-                        let productArray = [];
+                        let promiseArray = [];
                         orderProducts.forEach(ordProd => {
-                            Product.findOne({
+                            if(ordProd.ProductId > 0) {
+                            promiseArray.push(Product.findOne({
                                 raw: true,
-                                where: { id: ordProd.ProductId}
-                            })
-                                .then(foundProduct =>{
-                                  foundProduct != null ? productArray.push(foundProduct) : foundProduct;
+                                where: { id: ordProd.ProductId }
                                 })
+                            )}
                         })
-                        Product.findAll({
-                            raw: true,
-                            where: { id: orderProducts.ProductId }
-                        })
-                        .then(products => {
-                            console.log(productArray);
+                        Promise.all(promiseArray)
+                            .then(products => {
+                                console.log("products", products);
                                 res.render("cart", {
-                                    productArray, order
+                                    products, order
                                 });
                             });
                     });
-            });
+            })
     } else {
         res.redirect("/login");
     }
