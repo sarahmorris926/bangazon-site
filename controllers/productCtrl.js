@@ -7,51 +7,51 @@ const passport = require("passport");
 
 
 module.exports.postOrderProduct = (req, res, next) => {
-  let orderToAddTo;
-  
-  let day = new Date();
-  let dd = day.getDate();
-  let mm = day.getMonth()+1;
-  let yyyy = day.getFullYear();
-  if(dd<10) {
-    dd = '0'+dd
-  } 
-  if(mm<10) {
-    mm = '0'+mm
-  } 
-  day = yyyy + '-' + mm + '-' + dd;
-  
-  const {
-    Orders,
-    Product,
-    order_product
-  } = req.app.get("models");
+    let orderToAddTo;
 
- 
-  Orders.findOrCreate({
-      raw: true,
-      where: {
-        payment_type_id: null,
-        user_id: req.session.passport.user.id
-      },
-      defaults: {
-        order_creation_date: `${day}`
-      }
+    let day = new Date();
+    let dd = day.getDate();
+    let mm = day.getMonth() + 1;
+    let yyyy = day.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    day = yyyy + '-' + mm + '-' + dd;
+
+    const {
+        Orders,
+        Product,
+        order_product
+    } = req.app.get("models");
+
+
+    Orders.findOrCreate({
+        raw: true,
+        where: {
+            payment_type_id: null,
+            user_id: req.session.passport.user.id
+        },
+        defaults: {
+            order_creation_date: `${day}`
+        }
     })
-    .spread((instance, created) => {
-      orderToAddTo = instance;
-      console.log(instance, created, "i N ST A  DNSDF ");
-      Product.findById(req.params.id)
-        .then(product => {
-          Orders.findById(instance.id)
-            .then(instance => {
-              order_product.create({OrderId:instance.id,ProductId:req.params.id})
-            })
+        .spread((instance, created) => {
+            orderToAddTo = instance;
+            console.log(instance, created, "i N ST A  DNSDF ");
+            Product.findById(req.params.id)
+                .then(product => {
+                    Orders.findById(instance.id)
+                        .then(instance => {
+                            order_product.create({ OrderId: instance.id, ProductId: req.params.id })
+                        })
+                })
         })
-    })
-    .catch(err => {
-      console.log(err, "error");
-    })
+        .catch(err => {
+            console.log(err, "error");
+        })
 };
 module.exports.getLatestProducts = (req, res, next) => {
     const { Product } = req.app.get("models");
@@ -96,18 +96,40 @@ module.exports.displayProductsByCategory = (req, res, next) => {
 };
 
 module.exports.getActiveOrder = (req, res, next) => {
-    const { Orders, Product } = req.app.get("models");
-    if (req.session.passport != undefined) { 
+    const { Orders, Product, order_product } = req.app.get("models");
+    if (req.session.passport != undefined) {
         Orders.findOne({
             raw: true,
             where: { user_id: req.session.passport.user.id, payment_type_id: null }
         })
-            .then(order => {
-                res.render("cart", {
-                    order
-                }
-            );   
-        });
+            .then(order => {               
+                order_product.findAll({
+                    raw: true,
+                    where: { OrderId: order.id }
+                })
+                    .then(orderProducts => {
+                        let productArray = [];
+                        orderProducts.forEach(ordProd => {
+                            Product.findOne({
+                                raw: true,
+                                where: { id: ordProd.ProductId}
+                            })
+                                .then(foundProduct =>{
+                                  foundProduct != null ? productArray.push(foundProduct) : foundProduct;
+                                })
+                        })
+                        Product.findAll({
+                            raw: true,
+                            where: { id: orderProducts.ProductId }
+                        })
+                        .then(products => {
+                            console.log(productArray);
+                                res.render("cart", {
+                                    productArray
+                                });
+                            });
+                    });
+            });
     } else {
         res.redirect("/login");
     }

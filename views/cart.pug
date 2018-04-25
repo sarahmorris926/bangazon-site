@@ -10,11 +10,12 @@ html
 
   block content
     if order != undefined
-        h1 #{order.user_id}
-        h1 #{order.order_creation_date}
-        button(type="submit" class="showPaymentTypes" id=`${order.id}` value="Submit" )
+      each product in productArray
+        h1 #{product.product_name}
+        h2 #{product.price}
+        h6 #{product.product_description}
+        button(type="submit" class="showPaymentTypes" id=`${order.id}` value="Submit" ) Complete Order
     else
         h2 You're cart is empty!    
-
     script
       include ../client/client.js
