@@ -1,9 +1,9 @@
 # bangazon-site
 
-Bangazon Corp. is an NSS subsidiary company that employs students for Node project work
+Bangazon Corp. is an NSS subsidiary company that employs students for Node project work. This was a group project done with [Tucker Jackson](https://github.com/EliOJackson), [Courtney Brothers](https://github.com/CourtneyBrothers), [Spencer York](https://github.com/spenceryork), [Kate Rieger](https://github.com/krieger27), and myself. 
 
 
-server-side application to for the customer to interface with the bangazon database 
+Server-side application to for the customer to interface with the bangazon database 
 
 # Start here to initilizate the project
 
